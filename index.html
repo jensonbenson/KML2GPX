@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Convert your Google MyMaps waypoints to OsmAnd(+) favourites</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <style>
+  body { padding-top: 70px; }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="./">
+          KML2GPX-Converter
+        </a>
+      </div>
+      <!--
+      <form class="navbar-form navbar-right" method="post" action="kml2gpx.php" enctype="multipart/form-data">
+        <div class="form-group">
+          <input type="file" name="file" class="btn btn-default" accept="text/xml,.kml" />
+        </div>
+        <button type="submit" class="btn btn-primary">Convert &amp; Download</button>
+      </form>
+      -->
+    </div>
+  </nav>
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Convert waypoints from Google MyMaps to OsmAnd(+)</h1>
+      <p>Convert your markers/waypoints from your Google MyMaps to OsmAnd(+) Favourites</p>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <h2 class="sr-only">Follow these steps to convert your Google MyMaps waypoints to a OsmAnd(+) favourites.gpx</h2>
+        
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><a href="#export-kml" aria-controls="export-kml" role="tab" data-toggle="tab">Export .kml-File</a></li>
+          <li role="presentation"><a href="#import-gpx" aria-controls="import-gpx" role="tab" data-toggle="tab">Import favourites.gpx</a></li>
+        </ul>
+        
+        <!-- TABS -->
+        <div class="tab-content">
+          <!-- EXPORT -->
+          <div role="tabpanel" class="tab-pane active" id="export-kml">
+            <h3>How to export your Google-Map to a .kml-File</h3>
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <p>1. Goto <a href="https://www.google.com/mymaps/">Google MyMaps</a> and open the map that includes the markers or waypoints you want to use as your waypoints in OsmAnd(+)</p>
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <p>2. Open the menu (on mobile you have to click on the "legend"-button first to see the menu) and select "Export to KML"</p>
+                <img src="./img/kml2gpx_step2.jpg" class="img-responsive" alt="Step 2">
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <p>3. In the upcoming popup window mark the checkbox "Export to a .KML file" and click on the "DOWNLOAD"-Button<br>NOTE: .kmz files are not supported by the kml2gpx-converter</p>
+                <img src="./img/kml2gpx_step3.jpg" class="img-responsive" alt="Step 2">
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <p>4. Upload the downloaded file to the converter:</p>
+                <form method="post" action="kml2gpx.php" enctype="multipart/form-data" class="form-inline">
+                  <div class="form-group">
+                    <label for="file" class="sr-only">.kml-Datei auswählen:</label>
+                    <input type="file" name="file" class="btn btn-default" accept="text/xml,.kml" />
+                  </div>
+                  <button type="submit" class="btn btn-primary">Convert &amp; Download</button>
+                  <p class="help-block">NOTE: The file is not stored on our servers and gets downloaded directly after you click on the button.</p>
+                </form>
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-body text-center">
+                <a class="" href="#import-gpx" aria-controls="import-gpx" role="tab" data-toggle="tab">Continue with import</a>
+              </div>
+            </div>
+            
+          </div>
+          <!-- IMPORT -->
+          <div role="tabpanel" class="tab-pane" id="import-gpx">
+            <h3>How to import the favourites.gpx to OsmAnd(+)</h3>
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <p>This one's a little harder since OsmAnd(+) doesn't provide any function to import a file into the favourites.</p>
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading">ANDROID PHONE</div>
+              <div class="panel-body">
+
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <p>1. Locate the old favourites.gpx on your phone.</p>
+                    <p>Open the filemanager on your phone.</p>
+                    <p>On an Android phone there are two paths where the favourites.gpx may be found:</p>
+                    <p>
+                      A) On you phone's localstorage under <i>android->data->net.osmand(.plus)->files</i><br>
+                      B) On your phone's SDCARD under <i>android->data->net.osmand(.plus)->files</i><br>
+                    </p>
+                    <p>Depending to the settings you made inside the OsmAnd(+)-App, you will find the favourites.gpx in one of the two folders.</p>
+                  </div>
+                </div>
+
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <p>2. Manually backup your old favourites.gpx (or not).</p>
+                    <p>Simplest way is just to rename the favourites.gpx to something like favourites.gpx.bak</p>
+                  </div>
+                </div>
+
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <p>3. Copy the downloaded favourites.gpx and overwrite the current file inside the net.osmand(.plus)-folder</p>
+                  </div>
+                </div>
+
+              </div>
+            </div><!--ANDROID-->
+
+            <div class="panel panel-default">
+              <div class="panel-heading">IPHONE</div>
+              <div class="panel-body">
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <p>1. Locate the old favourites.gpx on your phone.</p>
+                    <p>Open the filemanager on your phone.</p>
+                    <!--
+                    <p>On an Android phone there are two paths where the favourites.gpx may be found:</p>
+                    <p>
+                      A) On you phone's localstorage under <i>android->data->net.osmand(.plus)->files</i><br>
+                      B) On your phone's SDCARD under <i>android->data->net.osmand(.plus)->files</i><br>
+                    </p>
+                    <p>Depending to the settings you made inside the OsmAnd(+)-App, you will find the favourites.gpx in one of the two folders.</p>
+                    -->
+                  </div>
+                </div>
+
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <p>2. Manually backup your old favourites.gpx (or not).</p>
+                    <p>Simplest way is just to rename the favourites.gpx to something like favourites.gpx.bak</p>
+                  </div>
+                </div>
+                
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <p>3. Copy the downloaded favourites.gpx and overwrite the current file inside the net.osmand(.plus)-folder</p>
+                  </div>
+                </div>
+              </div>
+            </div><!--IPHONE-->
+
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-4 hidden-xs hidden-smX">
+        <h3>Quick convert:</h3>
+        <form class="XXform-inline" method="post" action="kml2gpx.php" enctype="multipart/form-data">
+          <div class="form-group">
+            <input type="file" name="file" class="btn btn-default" accept="text/xml,.kml" />
+          </div>
+          <button type="submit" class="btn btn-primary">Convert &amp; Download</button>
+          <p class="help-block">NOTE: The file is not stored on our servers and gets downloaded directly after you press the button.</p>
+        </form>
+        <hr>
+      </div>
+    </div>
+  </div>
+  <footer class="footer navbar-default">
+    <div class="container-fluid">
+      <p class="navbar-text">&copy; 2017 Jens Rumpf. Sourcecode available on <a href="https://github.com/jensonbenson/KML2GPX">GitHub</a>. Released under GNU GPLv3</p>
+    </div>
+  </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>
