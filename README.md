@@ -13,4 +13,3 @@ MIT
 
 ## Todo
   - add Tutorial for importing favourites.gpx to iPhone (it's hard since I don't have one ;) )
-  - add Link to Github in the index.html
